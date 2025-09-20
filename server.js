@@ -413,10 +413,10 @@ app.use((req, res) => {
 });
 
 // Запуск сервера
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Сервер КОСМОС запущен на порту ${PORT}`);
-    console.log(`📱 Админ-панель: http://localhost:${PORT}/root.html`);
-    console.log(`🌌 Главная страница: http://localhost:${PORT}/`);
+    console.log(`📱 Админ-панель: http://192.168.1.2:${PORT}/root.html`);
+    console.log(`🌌 Главная страница: http://192.168.1.2:${PORT}/`);
 });
 
 // Graceful shutdown
