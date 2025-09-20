@@ -1,0 +1,12 @@
+# robots.txt for COSMOS blog
+
+User-agent: *
+# Запрещаем индексировать админку и API
+Disallow: /root.html
+Disallow: /api/
+
+# Разрешаем всё остальное
+Allow: /
+
+# Укажите свой домен после публикации
+Sitemap: https://shodruz.fun/sitemap.xml

@@ -1,0 +1,10 @@
+/* Team */
+Developer: Shodruz (Sheikh Shodruz)
+Twitter: @shodruz
+GitHub: https://github.com/Andy296-ai
+
+/* Site */
+Last update: 2025-08-21
+Language: ru
+Standards: HTML5, CSS3, ES6
+Components: Node.js, Express, SQLite, Chart.js, Font Awesome, Google Fonts

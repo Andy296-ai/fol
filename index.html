@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КОСМОС - Футуристический блог</title>
+    <meta name="description" content="КОСМОС — футуристический блог Шодруза о веб‑разработке, проектах и технологиях будущего.">
+    <meta name="keywords" content="Шодруз, блог, веб-разработка, fullstack, проекты, технологии, программирование">
+    <link rel="canonical" href="https://shodruz.fun">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Shodruz (Sheikh Shodruz)">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="КОСМОС — Футуристический блог">
+    <meta property="og:description" content="Футуристический блог о проектах, коде и технологиях будущего.">
+    <meta property="og:url" content="https://shodruz.fun/">
+    <meta property="og:image" content="https://shodruz.fun/og-cover.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="КОСМОС — Футуристический блог">
+    <meta name="twitter:description" content="Проекты, код и технологии будущего.">
+    <meta name="twitter:image" content="https://shodruz.fun/og-cover.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="./imm/favicon.svg">
+</head>
+<body>
+    <!-- Анимированные звезды -->
+    <div class="stars">
+        <div class="star" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="star" style="top: 20%; left: 80%; animation-delay: 1s;"></div>
+        <div class="star" style="top: 30%; left: 40%; animation-delay: 2s;"></div>
+        <div class="star" style="top: 40%; left: 90%; animation-delay: 0.5s;"></div>
+        <div class="star" style="top: 50%; left: 10%; animation-delay: 1.5s;"></div>
+        <div class="star" style="top: 60%; left: 70%; animation-delay: 2.5s;"></div>
+        <div class="star" style="top: 70%; left: 30%; animation-delay: 1s;"></div>
+        <div class="star" style="top: 80%; left: 60%; animation-delay: 0.8s;"></div>
+        <div class="star" style="top: 90%; left: 15%; animation-delay: 1.2s;"></div>
+        <div class="star" style="top: 15%; left: 85%; animation-delay: 0.3s;"></div>
+        <div class="star" style="top: 25%; left: 55%; animation-delay: 1.8s;"></div>
+        <div class="star" style="top: 35%; left: 25%; animation-delay: 0.7s;"></div>
+        <div class="star" style="top: 45%; left: 75%; animation-delay: 2.2s;"></div>
+        <div class="star" style="top: 55%; left: 45%; animation-delay: 1.3s;"></div>
+        <div class="star" style="top: 65%; left: 95%; animation-delay: 0.9s;"></div>
+        <div class="star" style="top: 75%; left: 35%; animation-delay: 1.6s;"></div>
+        <div class="star" style="top: 85%; left: 65%; animation-delay: 0.4s;"></div>
+        <div class="star" style="top: 95%; left: 5%; animation-delay: 2.1s;"></div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">КОСМОС</div>
+            
+            <!-- Бургер-меню для мобильных -->
+            <div class="burger-menu" id="burgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Десктопная навигация -->
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Главная</a></li>
+                    <li><a href="about.html">Обо мне</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Мобильная навигация -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#" class="active">Главная</a></li>
+            <li><a href="about.html">Обо мне</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/63471b92-fecd-4c92-9633-fab507e377e1.png" alt="Изображение заголовка блога - современный офис с компьютером и книгами на столе">
+                <h2>ДОБРО ПОЖАЛОВАТЬ В КОСМОС!</h2>
+                <p>В этом футуристическом блоге я буду делиться своими видеороликами, в которых представлю примеры продуктов, в основном программных кодов, которые я разрабатываю. Вы можете использовать их по своему усмотрению. Буду рад вашим комментариям и запросам!</p>
+                <p>Оставляйте комментарии и вопросы через форму обратной связи.</p>
+            </div>
+
+            <!-- Секция "Мои посты" -->
+            <div class="card">
+                <h2>МОИ ПОСТЫ</h2>
+                <div id="postsContainer">
+                    <!-- Посты будут загружаться динамически -->
+                    <div class="no-posts">
+                        <p>Пока постов нет. Первый пост появится здесь!</p>
+                    </div>
+                </div>
+                
+                <!-- Пагинация для постов -->
+                <div class="posts-pagination" id="postsPagination" style="display: none;">
+                    <!-- Пагинация будет создаваться динамически -->
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>ОБО МНЕ</h3>
+                <img src="./dsamf12/qwerdsfgh.jpg" alt="Фото автора блога - улыбающийся человек средних лет в очках" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin: 0 auto 1rem;">
+                <p>Привет! Меня зовут Шодруз (Шейх Шодруз), и я автор этого футуристического блога. Здесь я делюсь своими проектами, мыслями и опытом в мире технологий будущего.</p>
+            </div>
+
+            <div class="card">
+                <h3>СВЯЖИТЕСЬ СО МНОЙ</h3>
+                <form id="feedbackForm" class="space-y-4">
+                    <div id="formMessage" class="form-message hidden"></div>
+                    
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 КОСМОС - Футуристический блог Шодруза. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Бургер-меню
+        const burgerMenu = document.getElementById('burgerMenu');
+        const mobileNav = document.getElementById('mobileNav');
+
+        burgerMenu.addEventListener('click', function() {
+            burgerMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Закрытие мобильного меню при клике на ссылку
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                burgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Закрытие мобильного меню при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!burgerMenu.contains(e.target) && !mobileNav.contains(e.target)) {
+                burgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Функция для записи посещений
+        async function recordVisit() {
+            try {
+                // Получение IP адреса
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                
+                const visit = {
+                    ip: ipData.ip,
+                    userAgent: navigator.userAgent,
+                    page: window.location.pathname
+                };
+
+                // Отправка на сервер
+                await fetch('/api/visits', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(visit)
+                });
+            } catch (error) {
+                console.error('Ошибка записи посещения:', error);
+            }
+        }
+
+        // Запись посещения при загрузке страницы
+        recordVisit();
+
+        // Функция для загрузки и отображения постов
+        async function loadPosts() {
+            try {
+                const response = await fetch('/api/posts?page=1&limit=10');
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const posts = data.posts || [];
+                    
+                    const postsContainer = document.getElementById('postsContainer');
+                    const pagination = document.getElementById('postsPagination');
+                    
+                    if (posts.length === 0) {
+                        postsContainer.innerHTML = `
+                            <div class="no-posts">
+                                <p>Пока постов нет. Первый пост появится здесь!</p>
+                            </div>
+                        `;
+                        pagination.style.display = 'none';
+                        return;
+                    }
+                    
+                    // Отображение постов
+                    postsContainer.innerHTML = posts.map(post => `
+                        <div class="post-card">
+                            <h3 class="post-title">${post.title}</h3>
+                            <div class="post-video-container">
+                                <a href="${post.video}" target="_blank" class="post-video-link">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Смотреть видео</span>
+                                </a>
+                            </div>
+                            <p class="post-description">${post.description}</p>
+                            <div class="post-date">${new Date(post.created_at).toLocaleDateString('ru-RU')}</div>
+                        </div>
+                    `).join('');
+                    
+                    // Показ пагинации если постов больше 3
+                    if (posts.length > 3) {
+                        showPostsPagination(posts, data.pagination);
+                    } else {
+                        pagination.style.display = 'none';
+                    }
+                    
+                } else {
+                    throw new Error('Ошибка загрузки постов');
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки постов:', error);
+                const postsContainer = document.getElementById('postsContainer');
+                postsContainer.innerHTML = `
+                    <div class="no-posts">
+                        <p>Ошибка загрузки постов. Попробуйте позже.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Функция для отображения пагинации постов
+        function showPostsPagination(posts) {
+            const pagination = document.getElementById('postsPagination');
+            const postsPerPage = 3;
+            const totalPages = Math.ceil(posts.length / postsPerPage);
+            
+            if (totalPages <= 1) {
+                pagination.style.display = 'none';
+                return;
+            }
+            
+            const buttons = [];
+            if (currentPostsPage > 1) {
+                buttons.push(`<button class="page-btn" data-page="${currentPostsPage - 1}">←</button>`);
+            }
+            for (let i = 1; i <= totalPages; i++) {
+                const activeClass = i === currentPostsPage ? ' active' : '';
+                buttons.push(`<button class="page-btn${activeClass}" data-page="${i}">${i}</button>`);
+            }
+            if (currentPostsPage < totalPages) {
+                buttons.push(`<button class="page-btn" data-page="${currentPostsPage + 1}">→</button>`);
+            }
+            
+            pagination.innerHTML = buttons.join('');
+            pagination.style.display = 'flex';
+        }
+
+        // Переменные для пагинации постов
+        let currentPostsPage = 1;
+
+        // Функция перехода на страницу постов
+        function goToPostsPage(page) {
+            currentPostsPage = page;
+            loadPosts();
+        }
+
+        // Делегирование кликов по кнопкам пагинации (без inline-обработчиков)
+        document.getElementById('postsPagination').addEventListener('click', (e) => {
+            const btn = e.target.closest('.page-btn');
+            if (!btn || !btn.dataset.page) return;
+            const page = parseInt(btn.dataset.page, 10);
+            if (!Number.isNaN(page)) {
+                goToPostsPage(page);
+            }
+        });
+
+        // Загрузка постов при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPosts();
+            
+            // Анимация появления элементов
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Наблюдаем за всеми карточками
+            document.querySelectorAll('.card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease-out';
+                observer.observe(el);
+            });
+
+            // Интерактивные звезды
+            document.addEventListener('mousemove', function(e) {
+                const stars = document.querySelectorAll('.star');
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+
+                stars.forEach((star, index) => {
+                    const speed = (index + 1) * 0.1;
+                    const x = (mouseX - 0.5) * speed * 50;
+                    const y = (mouseY - 0.5) * speed * 50;
+                    
+                    star.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+        });
+
+        document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const formMessage = document.getElementById('formMessage');
+            
+            // Проверка полей
+            const name = formData.get('name').trim();
+            const email = formData.get('email').trim();
+            const message = formData.get('message').trim();
+            
+            if (!name || !email || !message) {
+                showMessage('Пожалуйста, заполните все поля', 'error');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showMessage('Пожалуйста, введите корректный email', 'error');
+                return;
+            }
+            
+            try {
+                const botToken = '7853498957:AAEEmm7eMsgbiPcRHcBd-pxG-A3XSw8zXXE';
+                const chatId = '5398093016';
+                
+                const text = `Новое сообщение из блога КОСМОС:\n\nИмя: ${name}\nEmail: ${email}\nСообщение: ${message}`;
+                
+                const targetUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${encodeURIComponent(chatId)}&text=${encodeURIComponent(text)}`;
+
+                const candidates = [
+                    { url: targetUrl, mode: 'no-cors' },
+                    { url: `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`, mode: 'cors' },
+                    { url: `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`, mode: 'cors' },
+                    { url: `https://thingproxy.freeboard.io/fetch/${targetUrl}`, mode: 'cors' }
+                ];
+
+                async function fetchWithTimeout(resource, options = {}, timeoutMs = 8000) {
+                    const controller = new AbortController();
+                    const id = setTimeout(() => controller.abort(), timeoutMs);
+                    try {
+                        return await fetch(resource, { ...options, signal: controller.signal, method: 'GET' });
+                    } finally {
+                        clearTimeout(id);
+                    }
+                }
+
+                let sent = false;
+                for (const candidate of candidates) {
+                    try {
+                        await fetchWithTimeout(candidate.url, { mode: candidate.mode });
+                        sent = true;
+                        break;
+                    } catch (err) {
+                        console.warn('Fetch attempt failed:', candidate.url, err);
+                    }
+                }
+
+                if (!sent) {
+                    try {
+                        await new Promise((resolve, reject) => {
+                            const img = new Image();
+                            const timer = setTimeout(() => {
+                                reject(new Error('IMG timeout'));
+                            }, 7000);
+                            img.onload = () => {
+                                clearTimeout(timer);
+                                resolve();
+                            };
+                            img.onerror = () => {
+                                clearTimeout(timer);
+                                resolve();
+                            };
+                            img.src = `${targetUrl}&_ts=${Date.now()}`;
+                        });
+                        sent = true;
+                    } catch (err) {
+                        console.warn('IMG fallback failed:', err);
+                    }
+                }
+
+                if (sent) {
+                    showMessage('Сообщение успешно отправлено!', 'success');
+                    form.reset();
+                } else {
+                    throw new Error('Не удалось отправить запрос (сетевые ограничения)');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                showMessage('Произошла ошибка при отправке сообщения. Попробуйте позже или используйте email для связи.', 'error');
+            }
+        });
+        
+        function showMessage(text, type) {
+            const formMessage = document.getElementById('formMessage');
+            formMessage.textContent = text;
+            formMessage.classList.remove('hidden');
+            formMessage.classList.remove('success', 'error');
+            formMessage.classList.add(type);
+            
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000);
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>
+

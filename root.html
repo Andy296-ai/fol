@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - КОСМОС</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="/node_modules/chart.js/dist/chart.umd.js"></script>
+    <link rel="icon" type="image/svg+xml" href="./imm/favicon_r.svg">
+</head>
+<body>
+    <!-- Анимированные звезды -->
+    <div class="stars">
+        <div class="star" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="star" style="top: 20%; left: 80%; animation-delay: 1s;"></div>
+        <div class="star" style="top: 30%; left: 40%; animation-delay: 2s;"></div>
+        <div class="star" style="top: 40%; left: 90%; animation-delay: 0.5s;"></div>
+        <div class="star" style="top: 50%; left: 10%; animation-delay: 1.5s;"></div>
+        <div class="star" style="top: 60%; left: 70%; animation-delay: 2.5s;"></div>
+        <div class="star" style="top: 70%; left: 30%; animation-delay: 1s;"></div>
+        <div class="star" style="top: 80%; left: 60%; animation-delay: 0.8s;"></div>
+        <div class="star" style="top: 90%; left: 15%; animation-delay: 1.2s;"></div>
+        <div class="star" style="top: 15%; left: 85%; animation-delay: 0.3s;"></div>
+        <div class="star" style="top: 25%; left: 55%; animation-delay: 1.8s;"></div>
+        <div class="star" style="top: 35%; left: 25%; animation-delay: 0.7s;"></div>
+        <div class="star" style="top: 45%; left: 75%; animation-delay: 2.2s;"></div>
+        <div class="star" style="top: 55%; left: 45%; animation-delay: 1.3s;"></div>
+        <div class="star" style="top: 65%; left: 95%; animation-delay: 0.9s;"></div>
+        <div class="star" style="top: 75%; left: 35%; animation-delay: 1.6s;"></div>
+        <div class="star" style="top: 85%; left: 65%; animation-delay: 0.4s;"></div>
+        <div class="star" style="top: 95%; left: 5%; animation-delay: 2.1s;"></div>
+    </div>
+
+    <!-- Экран входа -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>КОСМОС</h1>
+                <p>Административная панель</p>
+            </div>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" placeholder="Введите пароль">
+                </div>
+                <button id="loginBtn" class="btn">Войти</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основная админ-панель -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <header class="admin-header">
+            <div class="header-content">
+                <div class="logo">КОСМОС - Админ</div>
+                <nav class="admin-nav">
+                    <button class="nav-btn active" data-tab="posts">Посты</button>
+                    <button class="nav-btn" data-tab="analytics">Аналитика</button>
+                    <button class="nav-btn" data-tab="settings">Настройки</button>
+                </nav>
+                <button id="logoutBtn" class="logout-btn">Выйти</button>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <!-- Вкладка постов -->
+            <div id="postsTab" class="tab-content active">
+                <div class="tab-header">
+                    <h2>Управление постами</h2>
+                    <button id="addPostBtn" class="btn">Добавить пост</button>
+                </div>
+
+                <!-- Форма добавления/редактирования поста -->
+                <div id="postForm" class="post-form hidden">
+                    <h3 id="formTitle">Добавить новый пост</h3>
+                    <form id="postFormElement">
+                        <input type="hidden" id="postId" value="">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postTitle">Название поста</label>
+                                <input type="text" id="postTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postVideo">Ссылка на видео</label>
+                                <input type="url" id="postVideo" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="postDescription">Описание</label>
+                            <textarea id="postDescription" rows="4" required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn">Сохранить</button>
+                            <button type="button" id="cancelBtn" class="btn btn-secondary">Отмена</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Список постов -->
+                <div class="posts-list" id="postsList">
+                    <!-- Посты будут загружаться динамически -->
+                </div>
+
+                <!-- Пагинация -->
+                <div class="pagination" id="pagination">
+                    <!-- Пагинация будет создаваться динамически -->
+                </div>
+            </div>
+
+            <!-- Вкладка аналитики -->
+            <div id="analyticsTab" class="tab-content">
+                <div class="tab-header">
+                    <h2>Аналитика посещений</h2>
+                    <button id="refreshAnalytics" class="btn">Обновить</button>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Общая статистика</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number" id="totalVisits">0</span>
+                                <span class="stat-label">Всего посещений</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="uniqueVisitors">0</span>
+                                <span class="stat-label">Уникальных посетителей</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="todayVisits">0</span>
+                                <span class="stat-label">Сегодня</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>График посещений (7 дней)</h3>
+                        <canvas id="visitsChart" width="400" height="200"></canvas>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Последние посещения</h3>
+                        <div class="visits-list" id="visitsList">
+                            <!-- Список посещений будет загружаться динамически -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вкладка настроек -->
+            <div id="settingsTab" class="tab-content">
+                <div class="tab-header">
+                    <h2>Настройки системы</h2>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Очистка данных</h3>
+                        <p>Очистить историю посещений старше 12 дней</p>
+                        <button id="clearVisitsBtn" class="btn btn-warning">Очистить</button>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Экспорт данных</h3>
+                        <p>Скачать данные о посещениях</p>
+                        <button id="exportDataBtn" class="btn">Экспорт</button>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Резервное копирование</h3>
+                        <p>Создать резервную копию постов</p>
+                        <button id="backupBtn" class="btn">Создать бэкап</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Модальное окно подтверждения -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Подтверждение</h3>
+            <p id="confirmMessage">Вы уверены?</p>
+            <div class="modal-actions">
+                <button id="confirmYes" class="btn btn-danger">Да</button>
+                <button id="confirmNo" class="btn btn-secondary">Нет</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
+
+
